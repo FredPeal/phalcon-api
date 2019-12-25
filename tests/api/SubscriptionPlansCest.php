@@ -14,39 +14,6 @@ class AppsPlanCest
      * @param ApiTester $I
      * @return void
      */
-    public function create(ApiTester $I): void
-    {
-        $userData = $I->apiLogin();
-
-        //when doing a signup we create a subscription, so need to delete to confirm this test
-        $subscriptions = Subscription::find('user_id =' . $userData->id);
-        foreach ($subscriptions as $subscription) {
-            $subscription->is_deleted = 1;
-            $subscription->update();
-        }
-
-        $I->haveHttpHeader('Authorization', $userData->token);
-        $I->sendPost('/v1/apps-plans', [
-            'stripe_id' => 'monthly-10-1',
-            'card_exp_month' => '05',
-            'card_exp_year' => '2020',
-            'card_cvc' => '123',
-            'card_number' => '4242424242424242',
-        ]);
-
-        $I->seeResponseIsSuccessful();
-        $response = $I->grabResponse();
-        $data = json_decode($response, true);
-
-        $I->assertTrue(isset($data['id']));
-    }
-
-    /**
-     * Create subscription.
-     *
-     * @param ApiTester $I
-     * @return void
-     */
     public function upgrade(ApiTester $I): void
     {
         $userData = $I->apiLogin();
