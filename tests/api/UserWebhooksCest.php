@@ -10,7 +10,7 @@ class UserWebhooksCest extends BakaRestTest
     protected $model = 'user-webhooks';
 
     /**
-     * Create
+     * Create.
      *
      * @param ApiTester $I
      * @return void
@@ -37,7 +37,7 @@ class UserWebhooksCest extends BakaRestTest
     }
 
     /**
-     * update
+     * update.
      *
      * @param ApiTester $I
      * @return void
@@ -64,5 +64,32 @@ class UserWebhooksCest extends BakaRestTest
         $data = json_decode($response, true);
 
         $I->assertTrue($data['url'] == $webhookName);
+    }
+
+    /**
+     * Test executing webhook
+     *
+     * @param ApiTester $I
+     * @return void
+     */
+    public function execute(ApiTester $I): void
+    {
+        $userData = $I->apiLogin();
+
+        $I->haveHttpHeader('Authorization', $userData->token);
+        $I->sendPost('/v1/' . $this->model . '/companies/run', [
+            'module' => 'Companies',
+            'data' => json_encode(['test' => 'test']),
+            'action' => 'create',
+        ]);
+
+        $I->seeResponseIsSuccessful();
+        $response = $I->grabResponse();
+        $data = json_decode($response, true);
+
+        $keys = array_keys($data);
+        
+        $I->assertTrue(is_array($data[$keys[0]]));
+        $I->assertTrue(is_array($data[$keys[0]]['create']));
     }
 }
