@@ -62,6 +62,11 @@ We use the library [Baka HTTP](https://github.com/bakaphp/http) to handle our Ro
 
 ### Usage
 
+### ACL
+By Default the Canvas will assign all register user the Admin role but if you want to define a specific roles , you will need to add to your app settings
+
+`defaultAdminRole : App.RoleName`
+
 #### Requests
 
 ## Ecosystem
