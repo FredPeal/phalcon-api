@@ -1,13 +1,17 @@
 {
   "require": {
     "php": ">= 7.1",
-    "canvas/core": "dev-master",
     "ext-openssl": "*",
     "ext-phalcon": ">=3.2.0 <4.0",
+    "baka/cashier": "dev-master",
     "dariuszp/cli-progress-bar": "^1.0",
     "dmkit/phalcon-jwt-auth": "dev-master",
     "duncan3dc/fork-helper": "^2.2.0",
+    "elasticsearch/elasticsearch": "^6.1",
     "firebase/php-jwt": "^5.0",
+    "fzaninotto/faker": "^1.9@dev",
+    "bakaphp/php-apple-signin": "^2.0",
+    "hybridauth/hybridauth": "dev-master",
     "lcobucci/jwt": "^3.2",
     "league/flysystem": "^1.0",
     "league/flysystem-aws-s3-v3": "^1.0",
@@ -22,11 +26,7 @@
     "robmorgan/phinx": "^0.11",
     "sentry/sentry": "^1.9",
     "sly/notification-pusher": "2.x",
-    "vlucas/phpdotenv": "^2.4",
-    "elasticsearch/elasticsearch": "^6.1",
-    "fzaninotto/faker": "^1.9@dev",
-    "baka/cashier": "dev-master",
-    "hybridauth/hybridauth": "dev-master"
+    "vlucas/phpdotenv": "^2.4"
   },
   "require-dev": {
     "codeception/codeception": "^2.4",
