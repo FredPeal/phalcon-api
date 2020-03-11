@@ -1,6 +1,7 @@
 {
   "require": {
     "php": ">= 7.1",
+    "canvas/core": "dev-master",
     "ext-openssl": "*",
     "ext-phalcon": ">=3.2.0 <4.0",
     "baka/cashier": "dev-master",
