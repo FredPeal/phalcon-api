@@ -16,7 +16,7 @@ class SubscriptionLimitCest
 {
     /**
      * Confirm working with a system model update its total activity for the app and company the
-     * users is working with
+     * users is working with.
      *
      * @param ApiTester $I
      * @return void
@@ -41,7 +41,7 @@ class SubscriptionLimitCest
                 return Users::findFirstByEmail(Data::loginJson()['email']);
             }
         );
-        
+
         //set limit to 10 so we can fail
         $appPlanSettings = AppsPlans::findFirst(1)->set('users_total', 10);
 
@@ -97,7 +97,7 @@ class SubscriptionLimitCest
     }
 
     /**
-     * Confirm by chaging the total usage of the plan for the test account, we encounter the limit exception
+     * Confirm by chaging the total usage of the plan for the test account, we encounter the limit exception.
      *
      * @param ApiTester $I
      * @return void
