@@ -1,7 +1,6 @@
 {
   "require": {
     "php": ">= 7.1",
-    "canvas/core": "dev-master",
     "ext-openssl": "*",
     "ext-phalcon": ">=3.2.0 <4.0",
     "baka/cashier": "dev-master",
@@ -53,7 +52,8 @@
   "config": {
     "preferred-install": "dist",
     "sort-packages": true,
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "discard-changes": true
   },
   "autoload": {
     "classmap": [
