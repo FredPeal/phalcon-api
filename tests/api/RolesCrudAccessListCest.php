@@ -68,11 +68,11 @@ class RolesCrudAccessListCest extends BakaRestTest
             ],
             'access' => [
                 [
-                    'access_name' => 'create',
+                    'access_name' => 'test-create',
                     'resources_name' => 'Users',
                     'allowed' => 0,
                 ], [
-                    'access_name' => 'update',
+                    'access_name' => 'test-update',
                     'resources_name' => 'Users',
                     'allowed' => 0,
                 ],

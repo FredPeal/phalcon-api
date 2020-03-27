@@ -19,7 +19,7 @@ class UserWebhooksCest extends BakaRestTest
     {
         $userData = $I->apiLogin();
         $random = new Random();
-        $webhookName = 'test_' . $random->base58();
+        $webhookName = 'https://' . $random->base58() . '.com';
 
         $I->haveHttpHeader('Authorization', $userData->token);
         $I->sendPost('/v1/' . $this->model, [
@@ -46,7 +46,7 @@ class UserWebhooksCest extends BakaRestTest
     {
         $userData = $I->apiLogin();
         $random = new Random();
-        $webhookName = 'test_' . $random->base58();
+        $webhookName = 'https://' . $random->base58() . '.com';
 
         $I->haveHttpHeader('Authorization', $userData->token);
         $I->sendGet('/v1/' . $this->model);
@@ -67,7 +67,7 @@ class UserWebhooksCest extends BakaRestTest
     }
 
     /**
-     * Test executing webhook
+     * Test executing webhook.
      *
      * @param ApiTester $I
      * @return void
@@ -88,7 +88,7 @@ class UserWebhooksCest extends BakaRestTest
         $data = json_decode($response, true);
 
         $keys = array_keys($data);
-        
+
         $I->assertTrue(is_array($data[$keys[0]]));
         $I->assertTrue(is_array($data[$keys[0]]['create']));
     }
