@@ -7,12 +7,17 @@ use ApiTester;
 class LoginSequenceCest
 {
     /**
-     * Current App
+     * Current App.
      */
     private $currentApp;
 
     /**
-     * Get current user's info
+     * Current App.
+     */
+    private $defaultCompaniesId;
+
+    /**
+     * Get current user's info.
      *
      * @param ApiTester $I
      * @return void
@@ -29,11 +34,13 @@ class LoginSequenceCest
         $response = $I->grabResponse();
         $data = json_decode($response, true);
 
+        $this->defaultCompaniesId = $data['default_company'];
+
         $I->assertTrue(gettype($data) == 'array' && !empty($data));
     }
 
     /**
-     * Validate user's photo relationship
+     * Validate user's photo relationship.
      *
      * @param ApiTester $I
      * @return void
@@ -51,11 +58,11 @@ class LoginSequenceCest
         $response = $I->grabResponse();
         $data = json_decode($response, true);
 
-        $I->assertTrue(array_key_exists('photo',$data));
+        $I->assertTrue(array_key_exists('photo', $data));
     }
 
     /**
-     * Validate user's roles relationship
+     * Validate user's roles relationship.
      *
      * @param ApiTester $I
      * @return void
@@ -73,11 +80,11 @@ class LoginSequenceCest
         $response = $I->grabResponse();
         $data = json_decode($response, true);
 
-        $I->assertTrue(array_key_exists('roles',$data));
+        $I->assertTrue(array_key_exists('roles', $data));
     }
 
     /**
-     * Get user's companies info
+     * Get user's companies info.
      *
      * @param ApiTester $I
      * @return void
@@ -99,7 +106,7 @@ class LoginSequenceCest
     }
 
     /**
-     * Get companies' branches
+     * Get companies' branches.
      *
      * @param ApiTester $I
      * @return void
@@ -117,11 +124,11 @@ class LoginSequenceCest
         $response = $I->grabResponse();
         $data = json_decode($response, true);
 
-        $I->assertTrue(array_key_exists('branch',$data[0]) && $data[0]['branch']['companies_id'] == $data[0]['id']);
+        $I->assertTrue(array_key_exists('branch', $data[0]) && $data[0]['branch']['companies_id'] == $data[0]['id']);
     }
 
     /**
-     * Get companies'  branches
+     * Get companies'  branches.
      *
      * @param ApiTester $I
      * @return void
@@ -141,11 +148,33 @@ class LoginSequenceCest
 
         $this->currentApp = $data[0]['apps']['apps_id'];
 
-        $I->assertTrue(array_key_exists('apps',$data[0]) && $data[0]['apps']['companies_id'] == $data[0]['id']);
+        $I->assertTrue(array_key_exists('apps', $data[0]) && $data[0]['apps']['companies_id'] == $data[0]['id']);
     }
 
     /**
-     * Get system modules
+     * Get user's subscription.
+     *
+     * @param ApiTester $I
+     * @return void
+     */
+    public function getUsersDefaultSubscription(ApiTester $I) : void
+    {
+        $userData = $I->apiLogin();
+        $model = 'companies';
+        $queryVariables = '?relationships=apps,subscription,branch,branches,logo';
+
+        $I->haveHttpHeader('Authorization', $userData->token);
+        $I->sendGet('/v1/' . $model . $queryVariables);
+
+        $I->seeResponseIsSuccessful();
+        $response = $I->grabResponse();
+        $data = json_decode($response, true);
+
+        $I->assertTrue(array_key_exists('subscription', $data[0]) && $data[0]['subscription']['companies_id'] == $this->defaultCompaniesId);
+    }
+
+    /**
+     * Get system modules.
      *
      * @param ApiTester $I
      * @return void
@@ -166,7 +195,7 @@ class LoginSequenceCest
     }
 
     /**
-     * Get App
+     * Get App.
      *
      * @param ApiTester $I
      * @return void
@@ -187,7 +216,7 @@ class LoginSequenceCest
     }
 
     /**
-     * Get user's notifications
+     * Get user's notifications.
      *
      * @param ApiTester $I
      * @return void
@@ -204,7 +233,7 @@ class LoginSequenceCest
         $I->seeResponseIsSuccessful();
         $response = $I->grabResponse();
         $data = json_decode($response, true);
-        
+
         $I->assertTrue(gettype($data['data']) == 'array');
     }
 }
