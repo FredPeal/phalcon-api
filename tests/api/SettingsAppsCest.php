@@ -4,7 +4,7 @@ namespace Gewaer\Tests\api;
 
 use ApiTester;
 
-class AppsSettingsCest
+class SettingsAppsCest
 {
     /**
      * Get custom fields modules.
@@ -24,6 +24,9 @@ class AppsSettingsCest
         $I->seeResponseIsSuccessful();
         $response = $I->grabResponse();
         $data = json_decode($response, true);
+
+        print_r($data);
+        die();
 
         $I->assertTrue(gettype($data['data']) == 'array' && !empty($data['data']));
     }
