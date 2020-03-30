@@ -25,9 +25,6 @@ class SettingsAppsCest
         $response = $I->grabResponse();
         $data = json_decode($response, true);
 
-        print_r($data);
-        die();
-
         $I->assertTrue(gettype($data['data']) == 'array' && !empty($data['data']));
     }
 
