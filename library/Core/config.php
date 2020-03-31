@@ -38,6 +38,9 @@ return [
             ]
         ]
     ],
+    'namespace' => [
+        'models' => 'Gewaer\Models',
+    ],
     'filesystem' => [
         //temp directoy where we will upload our files before moving them to the final location
         'uploadDirectoy' => appPath(envValue('LOCAL_UPLOAD_DIR_TEMP')),
