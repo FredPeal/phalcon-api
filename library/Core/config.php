@@ -14,6 +14,9 @@ return [
             'logQueries' => getenv('DEBUG_QUERY'),
             'logRequest' => getenv('DEBUG_REQUEST')
         ],
+        'core' => [
+            'path' => envValue('CANVAS_CORE_PATH', appPath('vendor/canvas/core'))
+        ]
     ],
     'app' => [
         //GEWAER is a multi entity app encosystem so we need what is the current api ID for this api
