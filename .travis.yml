@@ -60,6 +60,7 @@ before_script:
   - ./vendor/bin/phinx migrate -e development
   - ./vendor/bin/phinx seed:run
   - php cli/cli.php setup
+  - php cli/cli.php acl crm
   - sudo rabbitmqctl status
 
 script:
