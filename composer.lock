@@ -945,12 +945,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bakaphp/canvas-core.git",
-                "reference": "4e0e48cb36b90bb6f1646d18d49c62737d881f23"
+                "reference": "fc7c4f339efbe5e142fe40a7969b61ca0fc787a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bakaphp/canvas-core/zipball/4e0e48cb36b90bb6f1646d18d49c62737d881f23",
-                "reference": "4e0e48cb36b90bb6f1646d18d49c62737d881f23",
+                "url": "https://api.github.com/repos/bakaphp/canvas-core/zipball/fc7c4f339efbe5e142fe40a7969b61ca0fc787a0",
+                "reference": "fc7c4f339efbe5e142fe40a7969b61ca0fc787a0",
                 "shasum": ""
             },
             "require": {
@@ -1018,7 +1018,7 @@
                 }
             ],
             "description": "Saas Kanvas Ecosystem Packages",
-            "time": "2020-04-03T14:53:27+00:00"
+            "time": "2020-04-06T14:50:44+00:00"
         },
         {
             "name": "clue/stream-filter",
