@@ -2,32 +2,15 @@
 
 namespace Gewaer\Cli\Tasks;
 
-use EmailTemplates;
-use Phalcon\Cli\Task as PhTask;
-use Gewaer\Cli\Tasks\AclTask;
-use Gewaer\Cli\Tasks\EmailtemplatesTask;
+use Canvas\Cli\Tasks\SetupTask as CanvasSetupTask;
 
 /**
  * Class AclTask.
  *
- * @package Canvas\Cli\Tasks;
+ * @package Gewaer\Cli\Tasks;
  *
- * @property \Canvas\Acl\Manager $acl
+ * @property \Gewaer\Acl\Manager $acl
  */
-class SetupTask extends PhTask
+class SetupTask extends CanvasSetupTask
 {
-    /**
-     * Create the default roles of the system.
-     *
-     * @return void
-     */
-    public function mainAction()
-    {
-        $acl = new AclTask();
-        $emailTemplates = new EmailtemplatesTask();
-
-        $acl->setupDefaultRoles();
-        $acl->kanvas();
-        $emailTemplates->insertUserNotificationTemplate();
-    }
 }
