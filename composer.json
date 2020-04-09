@@ -61,7 +61,7 @@
       "api",
       "library",
       "cli",
-      "test"
+      "tests"
     ]
   },
   "autoload-dev": {
