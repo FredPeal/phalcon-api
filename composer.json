@@ -60,7 +60,7 @@
     "classmap": [
       "api",
       "library",
-      "cli/tasks"
+      "cli"
     ]
   },
   "autoload-dev": {
