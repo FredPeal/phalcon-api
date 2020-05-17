@@ -78,7 +78,7 @@ switch ($action) {
             $response->header('Access-Control-Allow-Headers', 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range,publicKey,Authorization');
             $response->header('Access-Control-Max-Age', '86400');
             $response->header('Access-Control-Allow-Credentials', 'true');
-            $response->header('Content-Type', 'text/plain charset=UTF-8');
+            $response->header('Content-Type', 'application/json charset=UTF-8');
 
             try {
                 //OPTION Request
