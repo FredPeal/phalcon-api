@@ -43,9 +43,9 @@
     "phalcon/incubator": "~3.4",
     "php-amqplib/php-amqplib": "^2.9",
     "psr/log": "^1.0",
-    "pusher/pusher-php-server": "^3.0",
+    "pusher/pusher-php-server": "^4.1",
     "robmorgan/phinx": "0.*",
-    "sentry/sentry": "^1.9",
+    "sentry/sentry": "^2.4",
     "sly/notification-pusher": "2.x",
     "vlucas/phpdotenv": "^2.4"
   },
